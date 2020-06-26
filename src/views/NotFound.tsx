@@ -26,12 +26,8 @@ export default function NotFound() {
           { name: 'description', content: 'お探しのページは見つかりませんでした。' },
           { name: 'twitter:card', content: 'summary' },
           { property: 'og:image', content: 'https://tomtsutom.com/images/yoyogi.jpg' },
-          { property: 'og:title', content: 'Hoge' },
+          { property: 'og:title', content: '404 Not Found' },
           { property: 'og:description', content: 'お探しのページは見つかりませんでした。' }
-        ]}
-        link={[
-          { rel: 'icon', href: '/images/shika.png' },
-          { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/shika.png' }
         ]}
       />
       <div className={classes.heroContent}>

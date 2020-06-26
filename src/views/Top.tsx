@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 import { Helmet } from "react-helmet";
 
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Container from '@material-ui/core/Container';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import Container from "@material-ui/core/Container";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Sidebar from "../components/Sidebar";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -17,31 +18,40 @@ const useStyles = makeStyles((theme) => ({
   },
   cardGrid: {
     paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
+    paddingBottom: theme.spacing(4),
   },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+  title: {
+    color: "#fff",
   },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
+  titleBar: {
+    background:
+      "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
   },
-  cardContent: {
-    flexGrow: 1
+  gridList: {
+    flexWrap: "nowrap",
+    transform: "translateZ(0)",
   },
 }));
 
-const cards = [
-  { title: "@代々木", image: "/images/yoyogi.jpg", link: "https://photos.app.goo.gl/YXf1cQ6irWqYRZJR9", key: 1 },
-  { title: "@鎌倉", image: "/images/kamakura.jpg", link: "https://photos.app.goo.gl/6xsnTbc4kRuMPZFW9", key: 2 },
-  { title: "@自宅", image: "/images/zitaku.jpg", link: "https://photos.app.goo.gl/YkUgEwruPhyYa4eU8", key: 3 },
-];
-
-const links = [
-  { title: "自己紹介", image: "/images/yoyogi.jpg", link: "/hoge", key: 1 },
-  { title: "おすすめの飲み屋", image: "/images/kamakura.jpg", link: "/izakaya", key: 2 },
-  { title: "@", image: "/images/zitaku.jpg", link: "/", key: 3 },
+const photos = [
+  {
+    title: "代々木",
+    image: "/images/yoyogi.jpg",
+    link: "https://photos.app.goo.gl/YXf1cQ6irWqYRZJR9",
+    key: 1,
+  },
+  {
+    title: "鎌倉",
+    image: "/images/kamakura.jpg",
+    link: "https://photos.app.goo.gl/6xsnTbc4kRuMPZFW9",
+    key: 2,
+  },
+  {
+    title: "自宅",
+    image: "/images/zitaku.jpg",
+    link: "https://photos.app.goo.gl/YkUgEwruPhyYa4eU8",
+    key: 3,
+  },
 ];
 
 export default function Top() {
@@ -50,18 +60,27 @@ export default function Top() {
   return (
     <div>
       <Helmet
-        title={'tomtsutom.com'}
+        title={"tomtsutom.com"}
         meta={[
-          { name: 'description', content: 'tomtsutomの個人的なページです。' },
-          { name: 'twitter:card', content: 'summary' },
-          { property: 'og:image', content: 'https://tomtsutom.com/images/yoyogi.jpg' },
-          { property: 'og:title', content: 'tomtsutom.com' },
-          { property: 'og:description', content: 'tomtsutomの個人的なページ' }
+          { name: "description", content: "tomtsutomの個人的なページです。" },
+          { name: "twitter:card", content: "summary" },
+          {
+            property: "og:image",
+            content: "https://tomtsutom.com/images/yoyogi.jpg",
+          },
+          { property: "og:title", content: "tomtsutom.com" },
+          { property: "og:description", content: "tomtsutomの個人的なページ" },
         ]}
       />
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
+          <Typography
+            component="h3"
+            variant="h4"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
             Welcome to tomtsutom.com!
           </Typography>
           <Typography align="center" color="textSecondary" paragraph>
@@ -69,57 +88,40 @@ export default function Top() {
           </Typography>
         </Container>
       </div>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Typography variant="h6" color="textSecondary" paragraph>
-          撮影した写真たち
-        </Typography>
-        <Grid container spacing={4}>
-          {cards.map((card) => (
-            <Grid item key={card.key} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <ButtonBase
-                  href={card.link}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <CardContent className={classes.cardContent}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={card.image}
-                      title={card.title}
-                    />
-                    <Typography component="div" variant="overline" align="right">
-                      {card.title}
-                    </Typography>
-                  </CardContent>
-                </ButtonBase>
-              </Card>
-            </Grid>
-          ))}
+
+      <Grid container direction="row-reverse">
+        <Grid item xs={12} md={4}>
+          <Container className={classes.cardGrid} maxWidth="md">
+            <Sidebar />
+          </Container>
         </Grid>
-      </Container>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Typography variant="h6" color="textSecondary" paragraph>
-          その他のページへのリンク
-        </Typography>
-        <Grid container spacing={4}>
-          {links.map((link) => (
-            <Grid item key={link.key} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <ButtonBase
-                  href={link.link}
-                >
-                  <CardContent className={classes.cardContent}>
-                    <Typography>
-                      {link.title}
-                    </Typography>
-                  </CardContent>
-                </ButtonBase>
-              </Card>
-            </Grid>
-          ))}
+        <Grid item xs={12} md={8}>
+          <Container className={classes.cardGrid} maxWidth="md">
+            <Typography variant="h6" color="textSecondary" paragraph>
+              撮影した写真たち
+            </Typography>
+            <GridList className={classes.gridList} cols={2.5}>
+              {photos.map((tile) => (
+                <GridListTile key={tile.title}>
+                  <img src={tile.image} alt={tile.title} />
+                  <GridListTileBar
+                    title={tile.title}
+                    classes={{
+                      root: classes.titleBar,
+                      title: classes.title,
+                    }}
+                    actionIcon={
+                      <IconButton
+                        aria-label={`star ${tile.title}`}
+                      ></IconButton>
+                    }
+                  />
+                </GridListTile>
+              ))}
+            </GridList>
+          </Container>
         </Grid>
-      </Container>
+      </Grid>
     </div>
-  )
-};
+  );
+}
