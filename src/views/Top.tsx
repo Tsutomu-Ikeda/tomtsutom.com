@@ -2,34 +2,23 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Container from "@material-ui/core/Container";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
 import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Sidebar from "../components/Sidebar";
+import Gallery from "../components/Gallery";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6, 0, 1),
+    padding: theme.spacing(3, 0, 1),
   },
   cardGrid: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(0),
+    paddingBottom: theme.spacing(2),
   },
-  title: {
-    color: "#fff",
-  },
-  titleBar: {
-    background:
-      "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-  },
-  gridList: {
-    flexWrap: "nowrap",
-    transform: "translateZ(0)",
+  heading: {
+    marginBottom: "16px",
   },
 }));
 
@@ -97,28 +86,10 @@ export default function Top() {
         </Grid>
         <Grid item xs={12} md={8}>
           <Container className={classes.cardGrid} maxWidth="md">
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.heading}>
               撮影した写真たち
             </Typography>
-            <GridList className={classes.gridList} cols={2.5}>
-              {photos.map((tile) => (
-                <GridListTile key={tile.title}>
-                  <img src={tile.image} alt={tile.title} />
-                  <GridListTileBar
-                    title={tile.title}
-                    classes={{
-                      root: classes.titleBar,
-                      title: classes.title,
-                    }}
-                    actionIcon={
-                      <IconButton
-                        aria-label={`star ${tile.title}`}
-                      ></IconButton>
-                    }
-                  />
-                </GridListTile>
-              ))}
-            </GridList>
+            <Gallery items={photos} />
           </Container>
         </Grid>
       </Grid>
