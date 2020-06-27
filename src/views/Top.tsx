@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(2),
   },
   heading: {
-    marginBottom: "16px",
+    marginBottom: 16,
   },
 }));
 

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sentence: {
     lineHeight: "0.9cm",
-    marginBottom: "24px",
+    marginBottom: 24,
     color: "rgba(0, 0, 0, 0.7)",
   },
 }));

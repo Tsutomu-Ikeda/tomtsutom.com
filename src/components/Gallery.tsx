@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   titleBar: {
-    height: "42px",
+    height: 42,
     background:
       "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
   },

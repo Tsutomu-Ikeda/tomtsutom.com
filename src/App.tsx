@@ -35,7 +35,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    minHeight: "40px",
+    minHeight: 40,
   },
   main: {
     minHeight: "calc(100vh - 132px)",
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     padding: theme.spacing(2),
-    height: "80px",
+    height: 80,
   },
 }));
 
