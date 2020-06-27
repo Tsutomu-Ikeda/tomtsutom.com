@@ -1,3 +1,3 @@
-# www.tomtsutom.com
+# tomtsutom.com
 
 tomtsutomの個人的なページのソースコード
