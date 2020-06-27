@@ -113,9 +113,7 @@ export default function Top() {
 
       <Grid container direction="row-reverse">
         <Grid item xs={12} md={4}>
-          <Container className={classes.cardGrid} maxWidth="md">
-            <Sidebar />
-          </Container>
+          <Sidebar />
         </Grid>
         <Grid item xs={12} md={8}>
           <Container className={classes.cardGrid} maxWidth="md">

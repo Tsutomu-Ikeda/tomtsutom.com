@@ -2,9 +2,8 @@ import React from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import Typography from "@material-ui/core/Typography";
 
@@ -16,6 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     inline: {
       display: "inline",
+    },
+    leftIcon: {
+      width: 24,
+      minWidth: 24,
     },
   })
 );
@@ -58,7 +61,6 @@ export default function Sidebar() {
     <List className={classes.root}>
       {contents.map((item) => (
         <ListItem
-          alignItems="flex-start"
           button
           component="a"
           href={item.link}
@@ -80,11 +82,9 @@ export default function Sidebar() {
               </React.Fragment>
             }
           />
-          <ListItemSecondaryAction>
-            <IconButton edge="end" aria-label="comments">
-              <KeyboardArrowRightIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
+          <ListItemIcon className={classes.leftIcon}>
+            <KeyboardArrowRightIcon />
+          </ListItemIcon>
         </ListItem>
       ))}
     </List>
