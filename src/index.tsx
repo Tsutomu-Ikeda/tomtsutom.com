@@ -1,35 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { MuiThemeProvider } from '@material-ui/core/styles'
-import { createMuiTheme } from '@material-ui/core/styles';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { HelmetProvider } from "react-helmet-async";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#ffb0b0',
-      main: '#A30000',
-      dark: '#A30000',
-      contrastText: '#fff',
+      light: "#ffb0b0",
+      main: "#A30000",
+      dark: "#A30000",
+      contrastText: "#fff",
     },
     secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+      light: "#ff7961",
+      main: "#f44336",
+      dark: "#ba000d",
+      contrastText: "#000",
     },
   },
 });
 
+const helmetContext = {};
+
 ReactDOM.render(
   <React.StrictMode>
-    <MuiThemeProvider theme={theme}>
-      <App />
-    </MuiThemeProvider>
+    <HelmetProvider context={helmetContext}>
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
+    </HelmetProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

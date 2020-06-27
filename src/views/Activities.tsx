@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
