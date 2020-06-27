@@ -83,7 +83,7 @@ export default function Top() {
           >
             Welcome to tomtsutom.com!
           </Typography>
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             tomtsutomの個人的なページ
           </Typography>
         </Container>
@@ -97,7 +97,7 @@ export default function Top() {
         </Grid>
         <Grid item xs={12} md={8}>
           <Container className={classes.cardGrid} maxWidth="md">
-            <Typography variant="h6" color="textSecondary" paragraph>
+            <Typography variant="h6">
               撮影した写真たち
             </Typography>
             <GridList className={classes.gridList} cols={2.5}>

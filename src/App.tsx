@@ -22,7 +22,7 @@ import NotFound from "./views/NotFound";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" align="center" color="textSecondary">
       {"Copyright © "}
       <Link color="inherit" href="/">
         tomtsutom

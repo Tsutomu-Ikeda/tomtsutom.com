@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 0),
   },
   sentence: {
-    "line-height": "0.9cm",
+    lineHeight: "0.9cm",
+    marginBottom: "24px",
+    color: "rgba(0, 0, 0, 0.7)"
   },
 }));
 
@@ -53,17 +55,17 @@ export default function NoteBook() {
       </div>
 
       <Container maxWidth="md">
-        <Typography variant="h6" color="textSecondary" paragraph>
+        <Typography variant="h6">
           主義主張
         </Typography>
-        <Typography variant="body1" paragraph className={classes.sentence}>
+        <Typography variant="body1" className={classes.sentence}>
           猫はかわいい。
         </Typography>
       </Container>
 
       <div className={classes.links}>
         <Container maxWidth="sm">
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             <Link color="inherit" href="/">
               トップへ戻る
             </Link>

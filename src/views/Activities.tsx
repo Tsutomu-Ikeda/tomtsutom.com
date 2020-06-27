@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 0),
   },
   sentence: {
-    "line-height": "0.9cm",
+    lineHeight: "0.9cm",
+    marginBottom: "24px",
+    color: "rgba(0, 0, 0, 0.7)",
   },
 }));
 
@@ -49,29 +51,23 @@ export default function Profile() {
           >
             活動
           </Typography>
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             現在、未来、過去の順番で並べています。
           </Typography>
         </Container>
       </div>
 
       <Container maxWidth="md">
-        <Typography variant="h6" color="textSecondary" paragraph>
-          やっていること
-        </Typography>
-        <Typography variant="body1" paragraph className={classes.sentence}>
+        <Typography variant="h6">やっていること</Typography>
+        <Typography variant="body1" className={classes.sentence}>
           筋トレ、きれいなサイトを作ること
         </Typography>
-        <Typography variant="h6" color="textSecondary" paragraph>
-          やりたいこと
-        </Typography>
-        <Typography variant="body1" paragraph className={classes.sentence}>
+        <Typography variant="h6">やりたいこと</Typography>
+        <Typography variant="body1" className={classes.sentence}>
           オープンソース活動
         </Typography>
-        <Typography variant="h6" color="textSecondary" paragraph>
-          スキル
-        </Typography>
-        <Typography variant="body1" paragraph className={classes.sentence}>
+        <Typography variant="h6">スキル</Typography>
+        <Typography variant="body1" className={classes.sentence}>
           大学1年のころは、Pythonをやっていました。インターン先でRuby on
           Railsを色々いじる中でWeb
           APIの仕組みを理解し、VueでSPAとはなんぞやを覚え、このサイトはReact +
@@ -81,7 +77,7 @@ export default function Profile() {
 
       <div className={classes.links}>
         <Container maxWidth="sm">
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             <Link color="inherit" href="/">
               トップへ戻る
             </Link>

@@ -35,14 +35,14 @@ export default function NotFound() {
           <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
             404 Not Found
         </Typography>
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             お探しのページは見つかりませんでした。
         </Typography>
         </Container>
       </div>
       <div className={classes.links}>
         <Container maxWidth="sm">
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             <Link color="inherit" href="/">
               トップへ戻る
             </Link>
@@ -51,7 +51,7 @@ export default function NotFound() {
       </div>
       <div className={classes.links}>
         <Container maxWidth="sm">
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             ランダムに移動する
           </Typography>
         </Container>

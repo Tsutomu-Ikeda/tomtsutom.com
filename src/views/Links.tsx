@@ -10,6 +10,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 
+import AssessmentIcon from "@material-ui/icons/Assessment";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -29,9 +30,6 @@ const useStyles = makeStyles((theme) => ({
   },
   links: {
     padding: theme.spacing(1, 0),
-  },
-  sentence: {
-    "line-height": "0.9cm",
   },
 }));
 
@@ -107,11 +105,33 @@ export default function Links() {
           </Typography>
         </Container>
       </div>
-
       <Container maxWidth="sm">
-        <Typography variant="h6" color="textSecondary" paragraph>
-          各種SNS
-        </Typography>
+        <Typography variant="h6">お問合せ先</Typography>
+        <List className={classes.root}>
+          <ListItem
+            alignItems="flex-start"
+            button
+            component="a"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe6KEKuzLwCPv5sOTl6tW2-e7MgkEcLuxis42hUeuRo-Y55LA/viewform?usp=sf_link"
+            target="_blank"
+            rel="noopener"
+          >
+            <ListItemIcon>
+              <AssessmentIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary="Google Forms"
+              secondary={
+                <React.Fragment>
+                  内容確認後、こちらからメールで返信いたします。
+                </React.Fragment>
+              }
+            />
+          </ListItem>
+        </List>
+      </Container>
+      <Container maxWidth="sm">
+        <Typography variant="h6">各種SNS</Typography>
         <List className={classes.root}>
           {links.map((item) => (
             <ListItem
@@ -142,10 +162,9 @@ export default function Links() {
           ))}
         </List>
       </Container>
-
       <div className={classes.links}>
         <Container maxWidth="sm">
-          <Typography align="center" color="textSecondary" paragraph>
+          <Typography align="center" color="textSecondary">
             <Link color="inherit" href="/">
               トップへ戻る
             </Link>
