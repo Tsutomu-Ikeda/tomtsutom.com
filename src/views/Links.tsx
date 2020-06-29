@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
@@ -16,6 +15,8 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import FacebookIcon from "@material-ui/icons/Facebook";
 
+import Title from "../components/Title";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -23,10 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inline: {
     display: "inline",
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(4, 0, 1),
   },
   links: {
     padding: theme.spacing(1, 0),
@@ -78,33 +75,7 @@ export default function Links() {
 
   return (
     <div>
-      <Helmet
-        title={"リンク一覧 | tomtsutom.com"}
-        meta={[
-          { name: "description", content: "リンク一覧" },
-          { name: "twitter:card", content: "summary" },
-          {
-            property: "og:image",
-            content: "https://tomtsutom.com/images/kamakura.jpg",
-          },
-          { property: "og:title", content: "tomtsutom.com" },
-          { property: "og:description", content: "リンク一覧" },
-        ]}
-      />
-
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography
-            component="h3"
-            variant="h4"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            リンク一覧
-          </Typography>
-        </Container>
-      </div>
+      <Title title="リンク一覧" />
       <Container maxWidth="sm">
         <Typography variant="h6">お問合せ先</Typography>
         <List className={classes.root}>

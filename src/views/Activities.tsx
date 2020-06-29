@@ -1,16 +1,13 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 
+import Title from "../components/Title";
+
 const useStyles = makeStyles((theme) => ({
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(4, 0, 1),
-  },
   links: {
     padding: theme.spacing(1, 0),
   },
@@ -26,36 +23,11 @@ export default function Profile() {
 
   return (
     <div>
-      <Helmet
-        title={"活動 | tomtsutom.com"}
-        meta={[
-          { name: "description", content: "活動" },
-          { name: "twitter:card", content: "summary" },
-          {
-            property: "og:image",
-            content: "https://tomtsutom.com/images/kamakura.jpg",
-          },
-          { property: "og:title", content: "tomtsutom.com" },
-          { property: "og:description", content: "活動" },
-        ]}
+      <Title
+        title="活動"
+        subHeading="現在、未来、過去の順番で並べています。"
+        photoUrl="https://tomtsutom.com/images/kamakura.jpg"
       />
-
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography
-            component="h3"
-            variant="h4"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            活動
-          </Typography>
-          <Typography align="center" color="textSecondary">
-            現在、未来、過去の順番で並べています。
-          </Typography>
-        </Container>
-      </div>
 
       <Container maxWidth="md">
         <Typography variant="h6">やっていること</Typography>

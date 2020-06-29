@@ -1,23 +1,20 @@
-import React from 'react';
-import { Helmet } from "react-helmet-async";
+import React from "react";
 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+
+import Title from "../components/Title";
 
 const useStyles = makeStyles((theme) => ({
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(4, 0, 1),
-  },
   links: {
     padding: theme.spacing(1, 0),
   },
   sentence: {
     lineHeight: "0.9cm",
     marginBottom: 24,
-    color: "rgba(0, 0, 0, 0.7)"
+    color: "rgba(0, 0, 0, 0.7)",
   },
 }));
 
@@ -26,45 +23,39 @@ export default function Profile() {
 
   return (
     <div>
-      <Helmet
-        title={'自己紹介 | tomtsutom.com'}
-        meta={[
-          { name: 'description', content: '自己紹介' },
-          { name: 'twitter:card', content: 'summary' },
-          { property: 'og:image', content: 'https://tomtsutom.com/images/kamakura.jpg' },
-          { property: 'og:title', content: 'tomtsutom.com' },
-          { property: 'og:description', content: '自己紹介' }
-        ]}
+      <Title
+        title="自己紹介"
+        photoUrl="https://tomtsutom.com/images/kamakura.jpg"
       />
-
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
-            自己紹介
-          </Typography>
-        </Container>
-      </div>
-
       <Container maxWidth="md">
-        <Typography variant="h6">
-          基本情報
-        </Typography>
+        <Typography variant="h6">基本情報</Typography>
         <Typography variant="body1" className={classes.sentence}>
           名前は、池田力です。力と書いてつとむと読みます。
-          <Link href="https://crd.ndl.go.jp/reference/modules/d3ndlcrdentry/index.php?page=ref_view&id=1000089837" target="_blank" rel="noopener"> 嘉納治五郎の力必達という言葉</Link>
-          が由来らしいです。広島生まれの神奈川育ちで、広島東洋カープが好きです。<br />
+          <Link
+            href="https://crd.ndl.go.jp/reference/modules/d3ndlcrdentry/index.php?page=ref_view&id=1000089837"
+            target="_blank"
+            rel="noopener"
+          >
+            嘉納治五郎の力必達という言葉
+          </Link>
+          が由来らしいです。広島生まれの神奈川育ちで、広島東洋カープが好きです。
+          <br />
         </Typography>
 
-        <Typography variant="h6">
-          所属している組織
-        </Typography>
+        <Typography variant="h6">所属している組織</Typography>
         <Typography variant="body1" className={classes.sentence}>
-          上智大学理工学部情報理工学科の4年生で、<Link href="https://clipline.com/service/" target="_blank" rel="noopener">ClipLine株式会社</Link>で2年ほどインターンをしています。現在所属しているサークルは上智大学エレクトロニクスラボです。
+          上智大学理工学部情報理工学科の4年生で、
+          <Link
+            href="https://clipline.com/service/"
+            target="_blank"
+            rel="noopener"
+          >
+            ClipLine株式会社
+          </Link>
+          で2年ほどインターンをしています。現在所属しているサークルは上智大学エレクトロニクスラボです。
         </Typography>
 
-        <Typography variant="h6">
-          趣味
-        </Typography>
+        <Typography variant="h6">趣味</Typography>
         <Typography variant="body1" className={classes.sentence}>
           写真が好きです。散歩が好きです。鉄道旅行が好きです。音楽が好きです。動画編集が得意です。きれいなスライドが好きです。やきとんが好きです。
         </Typography>
@@ -80,5 +71,5 @@ export default function Profile() {
         </Container>
       </div>
     </div>
-  )
+  );
 }
