@@ -80,7 +80,6 @@ function useOnScreen(ref: React.RefObject<HTMLDivElement>, rootMargin = "0px") {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Update our state when observer callback fires
         setIntersecting(entry.isIntersecting);
       },
       {
@@ -107,7 +106,7 @@ const ImageLoader = (props: { src: string; title: string }) => {
   const [className, setClassName] = useState(classes.imgFullHeight);
   const [img] = useState(new Image());
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const onScreen = useOnScreen(wrapperRef, "-300px");
+  const onScreen = useOnScreen(wrapperRef, "0px");
 
   const onLoad = () => {
     if (onScreen && props.src && !loaded) {
