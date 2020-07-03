@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Skeleton from "@material-ui/lab/Skeleton";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,12 +14,15 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Activities from "./views/Activities";
-import Top from "./views/Top";
-import Profile from "./views/Profile";
-import Links from "./views/Links";
-import NoteBook from "./views/NoteBook";
 import NotFound from "./views/NotFound";
+
+const Activities = React.lazy(() => import("./views/Activities"));
+const Top = React.lazy(() => import("./views/Top"));
+const Photos = React.lazy(() => import("./views/Photos"));
+const Profile = React.lazy(() => import("./views/Profile"));
+const Links = React.lazy(() => import("./views/Links"));
+const Logs = React.lazy(() => import("./views/Logs"));
+const NoteBook = React.lazy(() => import("./views/NoteBook"));
 
 function Copyright() {
   return (
@@ -68,29 +72,39 @@ export default function App() {
 
       <main className={classes.main}>
         <Router>
-          <Switch>
-            <Route path="*/index.html">
-              <Redirect to="." />
-            </Route>
-            <Route path="/" exact>
-              <Top />
-            </Route>
-            <Route path="/profile" exact>
-              <Profile />
-            </Route>
-            <Route path="/activities" exact>
-              <Activities />
-            </Route>
-            <Route path="/notebook" exact>
-              <NoteBook />
-            </Route>
-            <Route path="/links" exact>
-              <Links />
-            </Route>
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
+          <Suspense
+            fallback={<Skeleton variant="rect" width="100%" height="calc(100vh - 132px)" />}
+          >
+            <Switch>
+              <Route path="*/index.html">
+                <Redirect to="." />
+              </Route>
+              <Route path="/" exact>
+                <Top />
+              </Route>
+              <Route path="/photos" exact>
+                <Photos />
+              </Route>
+              <Route path="/profile" exact>
+                <Profile />
+              </Route>
+              <Route path="/activities" exact>
+                <Activities />
+              </Route>
+              <Route path="/notebook" exact>
+                <NoteBook />
+              </Route>
+              <Route path="/links" exact>
+                <Links />
+              </Route>
+              <Route path="/logs" exact>
+                <Logs />
+              </Route>
+              <Route>
+                <NotFound />
+              </Route>
+            </Switch>
+          </Suspense>
         </Router>
       </main>
       {/* Footer */}
