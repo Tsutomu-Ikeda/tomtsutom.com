@@ -1,4 +1,5 @@
 # tomtsutom.com
+![CI](https://github.com/Tsutomu-Ikeda/tomtsutom.com/workflows/CI/badge.svg)
 
 tomtsutomの個人的なページのソースコード
 
