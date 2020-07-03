@@ -2,7 +2,6 @@ import React from "react";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Sidebar from "../components/Sidebar";
@@ -13,9 +12,6 @@ const useStyles = makeStyles((theme) => ({
   cardGrid: {
     paddingTop: theme.spacing(0),
     paddingBottom: theme.spacing(2),
-  },
-  heading: {
-    marginBottom: 16,
   },
 }));
 
@@ -90,16 +86,10 @@ export default function Top() {
         </Grid>
         <Grid item xs={12} sm={7} md={8}>
           <Container className={classes.cardGrid}>
-            <Typography variant="h6" className={classes.heading}>
-              撮影した写真たち
-            </Typography>
-            <Gallery items={photos} />
+            <Gallery heading="撮影した写真たち" items={photos} href="/photos" />
           </Container>
           <Container className={classes.cardGrid}>
-            <Typography variant="h6" className={classes.heading}>
-              美味しかった料理
-            </Typography>
-            <Gallery items={dishes} />
+            <Gallery heading="美味しい料理" items={dishes} href="/dishes" />
           </Container>
         </Grid>
       </Grid>
