@@ -29,28 +29,24 @@ const contents = [
     text: "池田 力",
     subText: "上智大学理工学部情報理工学科4年",
     link: "/profile",
-    key: 1,
   },
   {
     title: "活動",
     text: "やってきたこと",
     subText: "そしてやっていきたいこと",
     link: "/activities",
-    key: 2,
   },
   {
     title: "雑記帳",
     text: "試行錯誤など",
     subText: "いつか役に立つかもしれない",
     link: "/notebook",
-    key: 3,
   },
   {
     title: "リンク",
     text: "お問合せ先、各種SNS",
     subText: "Twitter, Instagram",
     link: "/links",
-    key: 4,
   },
 ];
 
@@ -59,12 +55,12 @@ export default function Sidebar() {
 
   return (
     <List className={classes.root}>
-      {contents.map((item) => (
+      {contents.map((item, index) => (
         <ListItem
           button
           component="a"
           href={item.link}
-          key={item.key}
+          key={index}
         >
           <ListItemText
             primary={item.title}

@@ -104,7 +104,7 @@ export default function Links() {
       <Container maxWidth="sm">
         <Typography variant="h6">各種SNS</Typography>
         <List className={classes.root}>
-          {links.map((item) => (
+          {links.map((item, index) => (
             <ListItem
               alignItems="flex-start"
               button
@@ -112,6 +112,7 @@ export default function Links() {
               href={item.link}
               target="_blank"
               rel="noopener"
+              key={index}
             >
               <ListItemIcon>{getIcon(item.icon)}</ListItemIcon>
               <ListItemText

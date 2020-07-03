@@ -52,7 +52,6 @@ export default function Gallery(props: {
   items: {
     title: string;
     image: string;
-    key: number;
   }[];
   heading?: string;
 }) {
@@ -84,9 +83,9 @@ export default function Gallery(props: {
         </Typography>
       ) : null}
       <GridList className={classes.gridList} cols={gridListCols()}>
-        {props.items.map((tile) => (
+        {props.items.map((tile, index) => (
           <GridListTile
-            key={tile.title}
+            key={index}
             cols={1}
             classes={{ tile: classes.gridTile }}
           >

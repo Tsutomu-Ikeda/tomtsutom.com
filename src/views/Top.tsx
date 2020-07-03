@@ -20,19 +20,16 @@ const photos = [
     title: "代々木",
     image: "/images/yoyogi.jpg",
     link: "https://photos.app.goo.gl/YXf1cQ6irWqYRZJR9",
-    key: 1,
   },
   {
     title: "鎌倉",
     image: "/images/kamakura.jpg",
     link: "https://photos.app.goo.gl/6xsnTbc4kRuMPZFW9",
-    key: 2,
   },
   {
     title: "自宅",
     image: "/images/zitaku.jpg",
     link: "https://photos.app.goo.gl/YkUgEwruPhyYa4eU8",
-    key: 3,
   },
 ];
 
@@ -40,32 +37,26 @@ const dishes = [
   {
     title: "横浜のくじら",
     image: "/images/whale.jpg",
-    key: 1,
   },
   {
     title: "代々木の餃子",
     image: "/images/gyoza.jpg",
-    key: 2,
   },
   {
     title: "田町の肉めし",
     image: "/images/nikumeshi.jpg",
-    key: 3,
   },
   {
     title: "市ヶ谷のピザ",
     image: "/images/pizza.jpg",
-    key: 4,
   },
   {
     title: "荻窪のいわしコロッケ",
     image: "/images/iwakoro.jpg",
-    key: 5,
   },
   {
     title: "恵比寿のごぼ天うどん",
     image: "/images/goboten.jpg",
-    key: 6,
   },
 ];
 
