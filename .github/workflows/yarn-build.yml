@@ -23,4 +23,4 @@ jobs:
           AWS_REGION: "ap-northeast-1"
           FROM_PATH: "./build/"
           DEST_PATH: ${{ secrets.AWS_BUCKET_NAME }}
-          OPTIONS: "--follow-symlinks --delete"
+          OPTIONS: "--follow-symlinks --delete --cache-control max-age=300"
