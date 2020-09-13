@@ -18,15 +18,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Photos() {
+export default function Logs() {
   const classes = useStyles();
 
   return (
     <div>
-      <Meta title="撮影した写真" />
+      <Meta title="日々の記録" />
 
       <Container maxWidth="md">
-        <Typography variant="h6">準備中です</Typography>
+        <Typography variant="h6">筋トレ</Typography>
+        <Typography variant="body1" className={classes.sentence}>
+          猫はかわいい。
+        </Typography>
+      </Container>
+
+      <Container maxWidth="md">
+        <Typography variant="h6">就寝時刻・起床時刻</Typography>
+        <Typography variant="body1" className={classes.sentence}>
+          猫はかわいい。
+        </Typography>
+      </Container>
+
+      <Container maxWidth="md">
+        <Typography variant="h6">飲んだお酒</Typography>
+        <Typography variant="body1" className={classes.sentence}>
+          ウィスキー
+        </Typography>
       </Container>
 
       <div className={classes.links}>

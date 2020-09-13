@@ -15,7 +15,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import FacebookIcon from "@material-ui/icons/Facebook";
 
-import Title from "../components/Title";
+import Meta from "../components/Meta";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,7 +75,7 @@ export default function Links() {
 
   return (
     <div>
-      <Title title="リンク一覧" />
+      <Meta title="リンク一覧" />
       <Container maxWidth="sm">
         <Typography variant="h6">お問合せ先</Typography>
         <List className={classes.root}>

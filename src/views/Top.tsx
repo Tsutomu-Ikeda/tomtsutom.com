@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Sidebar from "../components/Sidebar";
 import Gallery from "../components/Gallery";
-import Title from "../components/Title";
+import Meta from "../components/Meta";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -65,7 +65,7 @@ export default function Top() {
 
   return (
     <div>
-      <Title
+      <Meta
         title=""
         heading="Welcome to tomtsutom.com!"
         subHeading="tomtsutomの個人的なページ"

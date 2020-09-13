@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Title from "../components/Title";
+import Meta from "../components/Meta";
 
 const useStyles = makeStyles((theme) => ({
   links: {
@@ -23,7 +23,7 @@ export default function Profile() {
 
   return (
     <div>
-      <Title
+      <Meta
         title="活動"
         subHeading="現在、未来、過去の順番で並べています。"
         photoUrl="https://tomtsutom.com/images/kamakura.jpg"

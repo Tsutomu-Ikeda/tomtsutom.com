@@ -12,13 +12,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const getPageTitle = (props: { title: string }) =>
+const getPageMeta = (props: { title: string }) =>
   `${props.title && props.title + " | "}tomtsutom.com`;
 
-export default function Title(props: {
+export default function Meta(props: {
   title: string;
   heading?: string;
   subHeading?: string;
+  statusCode?: string;
   photoUrl?: string;
 }) {
   const classes = useStyles();
@@ -27,8 +28,9 @@ export default function Title(props: {
     <div>
       {props.subHeading ? (
         <Helmet
-          title={getPageTitle(props)}
+          title={getPageMeta(props)}
           meta={[
+            { name: "prerender-status-code", content: props.statusCode || "200" },
             { name: "description", content: props.subHeading },
             { name: "twitter:card", content: "summary" },
             {
@@ -36,14 +38,15 @@ export default function Title(props: {
               content:
                 props.photoUrl || "https://tomtsutom.com/images/kamakura.jpg",
             },
-            { property: "og:title", content: getPageTitle(props) },
+            { property: "og:title", content: getPageMeta(props) },
             { property: "og:description", content: props.subHeading },
           ]}
         />
       ) : (
         <Helmet
-          title={getPageTitle(props)}
+          title={getPageMeta(props)}
           meta={[
+            { name: "prerender-status-code", content: props.statusCode || "200" },
             { name: "description", content: props.title || "tomtsutom.com" },
             { name: "twitter:card", content: "summary" },
             {

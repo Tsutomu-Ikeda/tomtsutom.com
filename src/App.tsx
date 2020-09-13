@@ -21,6 +21,7 @@ const Top = React.lazy(() => import("./views/Top"));
 const Photos = React.lazy(() => import("./views/Photos"));
 const Profile = React.lazy(() => import("./views/Profile"));
 const Links = React.lazy(() => import("./views/Links"));
+const Logs = React.lazy(() => import("./views/Logs"));
 const NoteBook = React.lazy(() => import("./views/NoteBook"));
 
 function Copyright() {
@@ -95,6 +96,9 @@ export default function App() {
               </Route>
               <Route path="/links" exact>
                 <Links />
+              </Route>
+              <Route path="/logs" exact>
+                <Logs />
               </Route>
               <Route>
                 <NotFound />

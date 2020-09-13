@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Title from "../components/Title";
+import Meta from "../components/Meta";
 
 const useStyles = makeStyles((theme) => ({
   links: {
@@ -18,9 +18,10 @@ export default function NotFound() {
 
   return (
     <div>
-      <Title
+      <Meta
         photoUrl="https://tomtsutom.com/images/yoyogi.jpg"
         title="404 Not Found"
+        statusCode="404"
         subHeading="お探しのページは見つかりませんでした。"
       />
       <div className={classes.links}>

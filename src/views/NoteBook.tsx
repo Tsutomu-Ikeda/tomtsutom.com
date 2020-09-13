@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Title from "../components/Title";
+import Meta from "../components/Meta";
 
 const useStyles = makeStyles((theme) => ({
   links: {
@@ -23,7 +23,7 @@ export default function NoteBook() {
 
   return (
     <div>
-      <Title title="雑記帳" />
+      <Meta title="雑記帳" />
 
       <Container maxWidth="md">
         <Typography variant="h6">主義主張</Typography>
