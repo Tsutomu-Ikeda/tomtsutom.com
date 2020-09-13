@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const getPageMeta = (props: { title: string }) =>
+const getPageTitle = (props: { title: string }) =>
   `${props.title && props.title + " | "}tomtsutom.com`;
 
 export default function Meta(props: {
@@ -28,7 +28,7 @@ export default function Meta(props: {
     <div>
       {props.subHeading ? (
         <Helmet
-          title={getPageMeta(props)}
+          title={getPageTitle(props)}
           meta={[
             { name: "prerender-status-code", content: props.statusCode || "200" },
             { name: "description", content: props.subHeading },
@@ -38,13 +38,13 @@ export default function Meta(props: {
               content:
                 props.photoUrl || "https://tomtsutom.com/images/kamakura.jpg",
             },
-            { property: "og:title", content: getPageMeta(props) },
+            { property: "og:title", content: getPageTitle(props) },
             { property: "og:description", content: props.subHeading },
           ]}
         />
       ) : (
         <Helmet
-          title={getPageMeta(props)}
+          title={getPageTitle(props)}
           meta={[
             { name: "prerender-status-code", content: props.statusCode || "200" },
             { name: "description", content: props.title || "tomtsutom.com" },
