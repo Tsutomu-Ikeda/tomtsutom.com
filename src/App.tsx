@@ -21,7 +21,6 @@ const Top = React.lazy(() => import("./views/Top"));
 const Photos = React.lazy(() => import("./views/Photos"));
 const Profile = React.lazy(() => import("./views/Profile"));
 const Links = React.lazy(() => import("./views/Links"));
-const Logs = React.lazy(() => import("./views/Logs"));
 const NoteBook = React.lazy(() => import("./views/NoteBook"));
 
 function Copyright() {
@@ -54,6 +53,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const routes = [{
+  path: "/",
+  component: Top,
+}, {
+  path: "/photos",
+  component: Photos,
+}, {
+  path: "/profile",
+  component: Profile,
+}, {
+  path: "/activities",
+  component: Activities,
+}, {
+  path: "/notebook",
+  component: NoteBook,
+}, {
+  path: "/links",
+  component: Links
+}];
+
 export default function App() {
   const classes = useStyles();
 
@@ -79,27 +98,9 @@ export default function App() {
               <Route path="*/index.html">
                 <Redirect to="." />
               </Route>
-              <Route path="/" exact>
-                <Top />
-              </Route>
-              <Route path="/photos" exact>
-                <Photos />
-              </Route>
-              <Route path="/profile" exact>
-                <Profile />
-              </Route>
-              <Route path="/activities" exact>
-                <Activities />
-              </Route>
-              <Route path="/notebook" exact>
-                <NoteBook />
-              </Route>
-              <Route path="/links" exact>
-                <Links />
-              </Route>
-              <Route path="/logs" exact>
-                <Logs />
-              </Route>
+              {routes.map((item) => (
+                <Route path={item.path} component={item.component} exact />
+              ))}
               <Route>
                 <NotFound />
               </Route>
