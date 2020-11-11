@@ -44,9 +44,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "calc(100vh - 132px)",
     backgroundColor: theme.palette.background.paper,
   },
-  sidebar: {
-    background: "#ccc",
-  },
   footer: {
     padding: theme.spacing(2),
     height: 80,
@@ -99,7 +96,7 @@ export default function App() {
                 <Redirect to="." />
               </Route>
               {routes.map((item) => (
-                <Route path={item.path} component={item.component} exact />
+                <Route path={item.path} component={item.component} key={item.path} exact />
               ))}
               <Route>
                 <NotFound />

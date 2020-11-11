@@ -37,18 +37,6 @@ const contents = [
     link: "/activities",
   },
   {
-    title: "雑記帳",
-    text: "試行錯誤など",
-    subText: "いつか役に立つかもしれない",
-    link: "/notebook",
-  },
-  {
-    title: "記録",
-    text: "日々の記録",
-    subText: "起床時刻, 筋トレ回数, 飲んだ酒",
-    link: "/logs",
-  },
-  {
     title: "リンク",
     text: "お問合せ先、各種SNS",
     subText: "Twitter, Instagram",
