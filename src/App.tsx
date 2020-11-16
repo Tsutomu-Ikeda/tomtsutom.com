@@ -20,6 +20,7 @@ const Activities = React.lazy(() => import("./views/Activities"));
 const Top = React.lazy(() => import("./views/Top"));
 const Photos = React.lazy(() => import("./views/Photos"));
 const Profile = React.lazy(() => import("./views/Profile"));
+const ShortLink = React.lazy(() => import("./views/ShortLink"));
 const Links = React.lazy(() => import("./views/Links"));
 const NoteBook = React.lazy(() => import("./views/NoteBook"));
 
@@ -65,6 +66,9 @@ const routes = [{
 }, {
   path: "/notebook",
   component: NoteBook,
+}, {
+  path: "/link",
+  component: ShortLink
 }, {
   path: "/links",
   component: Links

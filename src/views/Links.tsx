@@ -35,24 +35,24 @@ const links = [
     title: "Twitter",
     text: "@tsutomu_ikeda",
     icon: "twitter",
-    link: "https://twitter.com/tsutomu_ikeda",
+    link: "/l/twitter",
   },
   {
     title: "Instagram",
     text: "@tomtsutom",
     icon: "instagram",
-    link: "https://www.instagram.com/tomtsutom",
+    link: "/l/instagram",
   },
   {
     title: "GitHub",
     text: "@Tsutomu-Ikeda",
     icon: "github",
-    link: "https://github.com/Tsutomu-Ikeda",
+    link: "/l/github",
   },
   {
     title: "Facebook",
     icon: "facebook",
-    link: "https://www.facebook.com/tsutomu.ikeda.792",
+    link: "/l/facebook",
   },
 ];
 
