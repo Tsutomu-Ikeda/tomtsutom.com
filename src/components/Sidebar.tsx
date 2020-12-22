@@ -37,6 +37,12 @@ const contents = [
     link: "/activities",
   },
   {
+    title: "雑記帳",
+    text: "試行錯誤など",
+    subText: "いつか役に立つことを書きます",
+    link: "https://memo.tomtsutom.com",
+  },
+  {
     title: "リンク",
     text: "お問合せ先、各種SNS",
     subText: "Twitter, Instagram",
