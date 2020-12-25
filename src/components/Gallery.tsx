@@ -117,7 +117,7 @@ const ImageLoader = (props: { src: string; title: string }) => {
     }
   };
 
-  useEffect(onLoad, [onScreen]);
+  useEffect(onLoad, [onScreen, img, loaded, props.src]);
   useEffect(() => {
     const handleResize = () => {
       if (wrapperRef.current) {
