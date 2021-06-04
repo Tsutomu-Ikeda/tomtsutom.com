@@ -1,4 +1,3 @@
-import React, { useRef, useState, useEffect } from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Link from "@material-ui/core/Link";
@@ -6,10 +5,11 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import Skeleton from "@material-ui/lab/Skeleton";
 import Typography from "@material-ui/core/Typography";
 
 import { useTheme, makeStyles } from "@material-ui/core/styles";
+
+import ImageLoader from "./ImageLoader";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -46,119 +46,17 @@ const useStyles = makeStyles((theme) => ({
   moreTile: {
     maxWidth: 50,
   },
-  divWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    textAlign: "center",
-    width: "100%",
-    height: "100%",
-  },
-  skeleton: {
-    transform: "scale(1, 1)",
-    width: "100%",
-    height: "100%",
-  },
-  imgFullHeight: {
-    display: "block",
-    objectFit: "cover",
-    maxHeight: "100%",
-  },
-  imgFullWidth: {
-    display: "block",
-    objectFit: "cover",
-    maxWidth: "100%",
-  },
 }));
-
-function useOnScreen(ref: React.RefObject<HTMLDivElement>, rootMargin = "0px") {
-  // State and setter for storing whether element is visible
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  useEffect(() => {
-    let ignore = false;
-    const curr = ref.current;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin,
-      }
-    );
-    if (!ignore && curr) {
-      observer.observe(curr);
-    }
-    return () => {
-      ignore = true;
-      if (curr) {
-        observer.unobserve(curr);
-      }
-    };
-  }, [rootMargin, ref]);
-
-  return isIntersecting;
-}
-
-const ImageLoader = (props: { src: string; title: string }) => {
-  const classes = useStyles();
-  const [loaded, setLoaded] = useState(false);
-  const [className, setClassName] = useState(classes.imgFullHeight);
-  const [img] = useState(new Image());
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const onScreen = useOnScreen(wrapperRef, "0px");
-
-  const onLoad = () => {
-    if (onScreen && props.src && !loaded) {
-      img.onload = () => {
-        setLoaded(true);
-      };
-      img.src = props.src;
-    }
-  };
-
-  useEffect(onLoad, [onScreen, img, loaded, props.src]);
-  useEffect(() => {
-    const handleResize = () => {
-      if (wrapperRef.current) {
-        if (
-          img.width * wrapperRef.current.offsetHeight >
-          img.height * wrapperRef.current.offsetWidth
-        ) {
-          setClassName(classes.imgFullHeight);
-        } else {
-          setClassName(classes.imgFullWidth);
-        }
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [classes, img, loaded]);
-
-  return (
-    <div ref={wrapperRef} className={classes.divWrapper}>
-      {loaded ? (
-        <img src={props.src} alt={props.title} className={className} />
-      ) : (
-        <Skeleton component="div" className={classes.skeleton} />
-      )}
-    </div>
-  );
-};
 
 export default function Gallery(props: {
   href: string;
   items: {
     title: string;
     image: string;
+    id: string;
   }[];
   heading?: string;
+  url?: string;
 }) {
   const classes = useStyles();
 
@@ -194,7 +92,13 @@ export default function Gallery(props: {
             cols={1}
             classes={{ tile: classes.gridTile }}
           >
-            <ImageLoader src={tile.image} title={tile.title} />
+            {props.url ? (
+              <Link href={`${props.url}#${tile.id}`}>
+                <ImageLoader src={tile.image} title={tile.title} type="fullfill" />
+              </Link>
+            ) : (
+              <ImageLoader src={tile.image} title={tile.title} type="fullfill" />
+            )}
             <GridListTileBar
               subtitle={tile.title}
               classes={{

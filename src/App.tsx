@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
 
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Link from "@material-ui/core/Link";
 import Skeleton from "@material-ui/lab/Skeleton";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
 import {
   BrowserRouter as Router,
   Route,
@@ -14,15 +14,17 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import ScrollHandler from "./components/ScrollHandler";
 import NotFound from "./views/NotFound";
 
 const Activities = React.lazy(() => import("./views/Activities"));
-const Top = React.lazy(() => import("./views/Top"));
+const Dishes = React.lazy(() => import("./views/Dishes"));
+const Links = React.lazy(() => import("./views/Links"));
+const NoteBook = React.lazy(() => import("./views/NoteBook"));
 const Photos = React.lazy(() => import("./views/Photos"));
 const Profile = React.lazy(() => import("./views/Profile"));
 const ShortLink = React.lazy(() => import("./views/ShortLink"));
-const Links = React.lazy(() => import("./views/Links"));
-const NoteBook = React.lazy(() => import("./views/NoteBook"));
+const Top = React.lazy(() => import("./views/Top"));
 
 function Copyright() {
   return (
@@ -55,14 +57,17 @@ const routes = [{
   path: "/",
   component: Top,
 }, {
+  path: "/activities",
+  component: Activities,
+}, {
+  path: "/dishes",
+  component: Dishes,
+}, {
   path: "/photos",
   component: Photos,
 }, {
   path: "/profile",
   component: Profile,
-}, {
-  path: "/activities",
-  component: Activities,
 }, {
   path: "/notebook",
   component: NoteBook,
@@ -92,6 +97,7 @@ export default function App() {
 
       <main className={classes.main}>
         <Router>
+          <ScrollHandler />
           <Suspense
             fallback={<Skeleton variant="rect" width="100%" height="calc(100vh - 132px)" />}
           >
