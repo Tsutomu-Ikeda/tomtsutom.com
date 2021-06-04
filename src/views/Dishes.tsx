@@ -41,7 +41,9 @@ export default function Dishes() {
 
   return (
     <div>
-      <Meta title="美味しい料理たち" />
+      <Meta
+        title="美味しい料理たち"
+        photoUrl="https://tomtsutom.com/images/pizza.jpg" />
 
       <Container maxWidth="md">
         {dishes.map((dish, index) => (
