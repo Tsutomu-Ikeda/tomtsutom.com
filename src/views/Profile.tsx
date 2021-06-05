@@ -1,5 +1,3 @@
-import React from "react";
-
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
@@ -44,15 +42,14 @@ export default function Profile() {
 
         <Typography variant="h6">所属している組織</Typography>
         <Typography variant="body1" className={classes.sentence}>
-          上智大学理工学部情報理工学科の4年生で、
           <Link
-            href="https://clipline.com/service/"
+            href="https://jp.corp-sansan.com/"
             target="_blank"
             rel="noopener"
           >
-            ClipLine株式会社
+            Sansan株式会社
           </Link>
-          で2年ほどインターンをしています。現在所属しているサークルは上智大学エレクトロニクスラボです。
+          でサーバーサイドエンジニアとして働いています。
         </Typography>
 
         <Typography variant="h6">趣味</Typography>

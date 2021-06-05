@@ -27,7 +27,6 @@ const contents = [
   {
     title: "自己紹介",
     text: "池田 力",
-    subText: "上智大学理工学部情報理工学科4年",
     link: "/profile",
   },
   {
@@ -74,7 +73,7 @@ export default function Sidebar() {
                 >
                   {item.text}
                 </Typography>
-                {` — ${item.subText}`}
+                {item.subText && ` — ${item.subText}`}
               </React.Fragment>
             }
           />
