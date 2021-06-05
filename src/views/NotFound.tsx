@@ -28,7 +28,7 @@ export default function NotFound() {
         <Container maxWidth="sm">
           <Typography align="center" color="textSecondary">
             <Link color="inherit" href="/">
-              トップへ戻る
+              トップページへ戻る
             </Link>
           </Typography>
         </Container>
