@@ -16,7 +16,7 @@ const dishes = [
     image: "/images/gyoza.jpg",
     id: "gyoza",
     store: {
-      name: "でっかい餃子 曽さんの店 代々木店",
+      name: "でっかい餃子 曽さんの店",
       station: "代々木駅",
       mapLink: "https://goo.gl/maps/sQnWrnNy9j8kgrXRA",
       menuLink: "https://tabelog.com/tokyo/A1304/A130403/13021680/dtlmenu/photo/",
@@ -27,7 +27,7 @@ const dishes = [
     image: "/images/nikumeshi.jpg",
     id: "nikumeshi",
     store: {
-      name: "岡むら屋 新橋店",
+      name: "岡むら屋",
       station: "新橋駅",
       mapLink: "https://goo.gl/maps/gHyU8y2oYt2DErYi8",
       menuLink: "https://tabelog.com/tokyo/A1301/A130103/13153636/dtlmenu/",
@@ -60,7 +60,7 @@ const dishes = [
     image: "/images/goboten.jpg",
     id: "goboten",
     store: {
-      name: "No.4",
+      name: "博多うどん酒場イチカバチカ",
       station: "恵比寿駅",
       mapLink: "https://g.page/ichikabachika-ebisu?share",
       menuLink: "https://tabelog.com/tokyo/A1303/A130302/13198167/dtlmenu/photo/",
