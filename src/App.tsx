@@ -10,8 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect,
+  Routes,
+  Navigate,
 } from "react-router-dom";
 
 import ScrollHandler from "./components/ScrollHandler";
@@ -55,28 +55,28 @@ const useStyles = makeStyles((theme) => ({
 
 const routes = [{
   path: "/",
-  component: Top,
+  element: <Top />,
 }, {
   path: "/activities",
-  component: Activities,
+  element: <Activities />,
 }, {
   path: "/dishes",
-  component: Dishes,
+  element: <Dishes />,
 }, {
   path: "/photos",
-  component: Photos,
+  element: <Photos />,
 }, {
   path: "/profile",
-  component: Profile,
+  element: <Profile />,
 }, {
   path: "/notebook",
-  component: NoteBook,
+  element: <NoteBook />,
 }, {
   path: "/link",
-  component: ShortLink
+  element: <ShortLink />
 }, {
   path: "/links",
-  component: Links
+  element: <Links />
 }];
 
 export default function App() {
@@ -101,17 +101,13 @@ export default function App() {
           <Suspense
             fallback={<Skeleton variant="rect" width="100%" height="calc(100vh - 132px)" />}
           >
-            <Switch>
-              <Route path="*/index.html">
-                <Redirect to="." />
-              </Route>
+            <Routes>
+              <Route path="*/index.html" element={<Navigate to="." replace />}></Route>
               {routes.map((item) => (
-                <Route path={item.path} component={item.component} key={item.path} exact />
+                <Route path={item.path} element={item.element} key={item.path} />
               ))}
-              <Route>
-                <NotFound />
-              </Route>
-            </Switch>
+              <Route element={<NotFound />} ></Route>
+            </Routes>
           </Suspense>
         </Router>
       </main>
