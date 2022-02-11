@@ -11,10 +11,10 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
 } from "react-router-dom";
 
 import ScrollHandler from "./components/ScrollHandler";
+import RemoveTrailingIndex from "./components/RemoveTrailingIndex";
 import NotFound from "./views/NotFound";
 
 const Activities = React.lazy(() => import("./views/Activities"));
@@ -98,15 +98,15 @@ export default function App() {
       <main className={classes.main}>
         <Router>
           <ScrollHandler />
+          <RemoveTrailingIndex />
           <Suspense
             fallback={<Skeleton variant="rect" width="100%" height="calc(100vh - 132px)" />}
           >
             <Routes>
-              <Route path="*/index.html" element={<Navigate to="." replace />}></Route>
               {routes.map((item) => (
                 <Route path={item.path} element={item.element} key={item.path} />
               ))}
-              <Route element={<NotFound />} ></Route>
+              <Route path="*" element={<NotFound />} ></Route>
             </Routes>
           </Suspense>
         </Router>

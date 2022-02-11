@@ -18,7 +18,6 @@ const ScrollHandler = () => {
     } else if (count > 3) {
       clearInterval(scroll)
     }
-    console.log(count);
     count += 1;
   }, 100);
   return null;
