@@ -1,44 +1,31 @@
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 
 import Sidebar from "../components/Sidebar";
 import Gallery from "../components/Gallery";
 import Meta from "../components/Meta";
-import dishes from "../data/Dishes";
 import photos from "../data/Photos";
-
-const useStyles = makeStyles((theme) => ({
-  cardGrid: {
-    paddingTop: theme.spacing(0),
-    paddingBottom: theme.spacing(2),
-  },
-}));
+import { useMediaQuery, useTheme } from "@material-ui/core";
 
 export default function Top() {
-  const classes = useStyles();
+  const theme = useTheme();
+  const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <div>
+    <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
       <Meta
         title=""
         heading="Welcome to tomtsutom.com!"
         subHeading="tomtsutomの個人的なページ"
       />
 
-      <Grid container direction="row-reverse">
-        <Grid item xs={12} sm={5} md={4}>
+      <div style={{ flexGrow: 1, display: "flex", flexDirection: isDownSm ? "column" : undefined }}>
+        <div style={{ padding: "0 20px 10px 20px", width: "100%", flexGrow: isDownSm ? 0 : 1 }}>
+          <Gallery heading="撮影した写真たち" items={photos} href="/photos" url="photos" />
+        </div>
+        <div style={{ width: isDownSm ? "100%" : "500px" }}>
           <Sidebar />
-        </Grid>
-        <Grid item xs={12} sm={7} md={8}>
-          <Container className={classes.cardGrid}>
-            <Gallery heading="撮影した写真たち" items={photos} href="/photos" url="photos"/>
-          </Container>
-          <Container className={classes.cardGrid}>
-            <Gallery heading="美味しい料理" items={dishes} href="/dishes" url="dishes"/>
-          </Container>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </div>
   );
 }

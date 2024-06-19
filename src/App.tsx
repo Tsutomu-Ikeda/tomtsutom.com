@@ -17,10 +17,7 @@ import ScrollHandler from "./components/ScrollHandler";
 import RemoveTrailingIndex from "./components/RemoveTrailingIndex";
 import NotFound from "./views/NotFound";
 
-const Activities = React.lazy(() => import("./views/Activities"));
-const Dishes = React.lazy(() => import("./views/Dishes"));
 const Links = React.lazy(() => import("./views/Links"));
-const NoteBook = React.lazy(() => import("./views/NoteBook"));
 const Photos = React.lazy(() => import("./views/Photos"));
 const Profile = React.lazy(() => import("./views/Profile"));
 const ShortLink = React.lazy(() => import("./views/ShortLink"));
@@ -46,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
   main: {
     minHeight: "calc(100vh - 132px)",
     backgroundColor: theme.palette.background.paper,
+    display: "flex",
+    flexDirection: "column",
   },
   footer: {
     padding: theme.spacing(2),
@@ -57,20 +56,11 @@ const routes = [{
   path: "/",
   element: <Top />,
 }, {
-  path: "/activities",
-  element: <Activities />,
-}, {
-  path: "/dishes",
-  element: <Dishes />,
-}, {
   path: "/photos",
   element: <Photos />,
 }, {
   path: "/profile",
   element: <Profile />,
-}, {
-  path: "/notebook",
-  element: <NoteBook />,
 }, {
   path: "/link",
   element: <ShortLink />

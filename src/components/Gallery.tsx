@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { useTheme, makeStyles } from "@material-ui/core/styles";
 
 import ImageLoader from "./ImageLoader";
+import { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -25,8 +26,7 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
   },
   gridList: {
-    flexWrap: "nowrap",
-    transform: "translateZ(0)",
+    overflowY: "auto",
   },
   gridTile: {
     borderRadius: 5,
@@ -54,6 +54,7 @@ export default function Gallery(props: {
     title: string;
     image: string;
     id: string;
+    taken_at: Date
   }[];
   heading?: string;
   url?: string;
@@ -64,6 +65,20 @@ export default function Gallery(props: {
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
   const isDownLg = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const [deviceHeight, setDeviceHeight] = useState(window.screen.height);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDeviceHeight(window.screen.height);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const RightArrow = () => (
     <div className={classes.svg}>
       <KeyboardArrowRight className={classes.arrowIcon} fontSize="large" />
@@ -72,12 +87,16 @@ export default function Gallery(props: {
 
   const gridListCols = () => {
     if (isDownSm) return 1.5;
-    else if (isDownLg) return 2.5;
-    else return 4.5;
+    else if (isDownLg) return 2;
+    else return 4;
   };
 
   return (
-    <div>
+    <div style={{
+      flexDirection: "column",
+      display: "flex",
+      height: "100%",
+    }}>
       {props.heading ? (
         <Typography variant="h6" className={classes.heading}>
           <Link href={props.href} color="inherit">
@@ -85,35 +104,49 @@ export default function Gallery(props: {
           </Link>
         </Typography>
       ) : null}
-      <GridList className={classes.gridList} cols={gridListCols()}>
-        {props.items.map((tile, index) => (
-          <GridListTile
-            key={index}
-            cols={1}
-            classes={{ tile: classes.gridTile }}
-          >
-            {props.url ? (
-              <Link href={`${props.url}#${tile.id}`}>
-                <ImageLoader src={tile.image} title={tile.title} type="fullfill" />
-              </Link>
-            ) : (
-              <ImageLoader src={tile.image} title={tile.title} type="fullfill" />
-            )}
-            <GridListTileBar
-              subtitle={tile.title}
-              classes={{
-                root: classes.titleBar,
-                subtitle: classes.title,
-              }}
-            />
+      <div style={{
+        height: isDownSm ? undefined : 400,
+        flexGrow: isDownSm ? undefined : 1,
+        overflowY: "auto",
+      }}>
+        <GridList className={classes.gridList} cols={gridListCols()}
+          cellHeight={isDownSm ? deviceHeight - 498 : 200}
+          style={{
+            flexWrap: isDownSm ? "nowrap" : undefined,
+          }}>
+          {props.items.map((item, index) => {
+            const title = `${item.title} - ${item.taken_at.getFullYear()}年${item.taken_at.getMonth() + 1}月撮影`
+
+            return (
+              <GridListTile
+                key={index}
+                cols={1}
+                classes={{ tile: classes.gridTile }}
+              >
+                {props.url ? (
+                  <Link href={`${props.url}#${item.id}`}>
+                    <ImageLoader src={item.image} title={title} type="fullfill" />
+                  </Link>
+                ) : (
+                  <ImageLoader src={item.image} title={title} type="fullfill" />
+                )}
+                <GridListTileBar
+                  subtitle={title}
+                  classes={{
+                    root: classes.titleBar,
+                    subtitle: classes.title,
+                  }}
+                />
+              </GridListTile>
+            )
+          })}
+          <GridListTile cols={0.2} className={classes.moreTile}>
+            <Link href={props.href}>
+              <RightArrow />
+            </Link>
           </GridListTile>
-        ))}
-        <GridListTile cols={0.2} className={classes.moreTile}>
-          <Link href={props.href}>
-            <RightArrow />
-          </Link>
-        </GridListTile>
-      </GridList>
+        </GridList>
+      </div>
     </div>
   );
 }
