@@ -116,7 +116,7 @@ const photos = [
     image: "/images/kamakura.jpg",
     id: "kamakura",
     taken_at: new Date("2018-02-01 00:00:00"),
-    description: "北鎌倉駅と鎌倉駅の間の第三鎌倉道踏切付近の広場の蠟梅です。大学2年生のころの思い出の場所です。"
+    description: "北鎌倉駅と鎌倉駅の間の第三鎌倉道踏切付近の広場の蠟梅です。大学1年生のころの思い出の場所です。"
   },
 ];
 
